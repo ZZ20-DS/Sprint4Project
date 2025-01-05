@@ -5,9 +5,12 @@ import plotly.express as px
 # Load the data
 df = pd.read_csv('vehicles_us.csv')
 
-# Ensure 'price' and 'days_listed' columns have correct types
-df['price'] = df['price'].astype(float)
-df['days_listed'] = df['days_listed'].astype(float)  # Convert to float if necessary
+# Check and fix missing or invalid column names
+df.columns = [col if col != '' else f'Unnamed_{i}' for i, col in enumerate(df.columns)]
+
+# Ensure 'price' and 'days_listed' columns have correct types (convert to float if necessary)
+df['price'] = df['price'].astype(float, errors='ignore')
+df['days_listed'] = df['days_listed'].astype(float, errors='ignore')
 
 # Title of the app centered
 st.title('DRIVING FORCES: What affects Car Sales and Pricing')
