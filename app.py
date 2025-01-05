@@ -4,6 +4,10 @@ import plotly.express as px
 
 df = pd.read_csv('vehicles_us.csv')
 
+# Ensure 'price' column is of the correct type (float)
+df['price'] = df['price'].astype(float)
+
+
 st.header("Vehicle Data Dashboard")
 
 st.write("The following shown here are a collection of graphs and charts featuring the data shown in the vehicle dataset here.")
