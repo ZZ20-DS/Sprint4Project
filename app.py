@@ -21,6 +21,11 @@ st.write("The following shown here are a collection of graphs and charts featuri
 fig_histogram = px.histogram(df, x='price', title='Distribution of Vehicle Prices')
 
 st.plotly_chart(fig_histogram)
+   if filtered_df.empty:
+       st.write("No cars with price above $20,000 found.")
+   else:
+       st.write(filtered_df)
+   
 
  
 
