@@ -6,6 +6,7 @@ df = pd.read_csv('vehicles_us.csv')
 
 # Ensure 'price' column is of the correct type (float)
 df['price'] = df['price'].astype(float)
+df['days_listed'] = df['days_listed'].astype(float)  # Convert to float if necessary
 
 
 st.header("Vehicle Data Dashboard")
